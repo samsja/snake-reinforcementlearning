@@ -1,4 +1,10 @@
-import Game.snake as snake
-import Game.affichage as aff
+import GameFolder.game as game
 
 print("hw")
+
+game.test()
+
+
+print("end")
+
+input()
