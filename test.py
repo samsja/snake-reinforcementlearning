@@ -1,2 +1,1 @@
-def f():
-    return 1
+print(type(0.5))

@@ -14,9 +14,5 @@ class Game:
     def getInputs(self):
         return [i for i in range(self.NbInput)]
 
-
-a = Game(3)
-
-a.move(1)
-
-print(a.getInputs())
+    def __str__(self):
+        return "GameClass " + str(id(self))
