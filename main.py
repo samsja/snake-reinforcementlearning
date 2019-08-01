@@ -4,7 +4,6 @@ print("hw")
 
 game.test()
 
-
 print("end")
 
 input()

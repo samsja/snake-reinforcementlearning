@@ -45,7 +45,6 @@ class Game:
 
 
 
-
 class Snake(Game):
     def __init__(self, gridHeight=40,gridWidth=40  ,show = True, screenHeight=500,screenWidth=500):
         Game.__init__(self,"Snake",show,screenHeight,screenWidth)
@@ -64,11 +63,14 @@ class Snake(Game):
 
     def __initScreenSnake(self):
 
-        self.screen.surface.fill((50,50,50))
         self.__show()
 
 
+
+
+
     def __show(self):
+        self.screen.surface.fill((50,50,50))
         self.__drawGrid()
 
         hx = self.screenWidth//self.gridShape[0]
@@ -107,22 +109,33 @@ class Snake(Game):
             aff.pygame.draw.line(self.screen.surface, color, (0, y),(self.screenHeight, y))
 
 
-
-
-
-
-
-
+    def move(self,action):
+        self.__show()
+        self.viper.move(action)
+        print(action)
 
 
 def test():
 
     snake = Snake()
     snake.start()
+    action = "none"
 
     while(snake.screen.inRun):
         for event in aff.pygame.event.get() :
             if event.type == aff.pygame.QUIT :
                 snake.screen.inRun= False
-            else:
-                print(event.type)
+            elif event.type == aff.pygame.KEYDOWN:
+                if event.key == aff.pygame.K_UP:
+                    action = "up"
+                elif event.key == aff.pygame.K_DOWN:
+                    action = "down"
+
+                elif event.key == aff.pygame.K_LEFT:
+                    action = "left"
+
+                elif event.key == aff.pygame.K_RIGHT:
+                    action = "right"
+
+                if( action in ["up","down","right","left"]):
+                    snake.move(action)

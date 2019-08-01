@@ -30,11 +30,19 @@ class snakeBody:
     def move(self,action):
         if(action == "up"):
             mv = [0,-1]
-        if(action == "down"):
+        elif(action == "down"):
             mv = [0,1]
-        if(action == "left"):
+        elif(action == "left"):
             mv = [-1,0]
-        if(action == "right"):
+        elif(action == "right"):
             mv = [1,0]
         else:
             mv = [0,0]
+
+        if( not(mv == [0,0])):
+            for i in range(len(self.body)):
+                print(self.body[i])
+                self.body[i][0] = self.body[i][0] + mv[0]
+                self.body[i][1] = self.body[i][1] + mv[1]
+
+                print(self.body[i])
