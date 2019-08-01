@@ -6,13 +6,16 @@ from Games.GameScreen import pygame
 
 print("youpi")
 
-game = snk.SnakeGame(rows = 10 , columns = 10)
+game = snk.SnakeGame(rows = 4 , columns = 4)
 screen = aff.SnakeScreen(game,screenWidth= 500,screenHeight=500,gridThickness=0)
 action = 1
 
 pygame.key.set_repeat(1,100)
+
+clock = pygame.time.Clock()
 while ( (action in game.getInputs()) or (action == -1) ):
 
+    clock.tick(30)
     action = screen.waitForInput()
     if(action != None):
         reward = game.move(action)
@@ -20,6 +23,5 @@ while ( (action in game.getInputs()) or (action == -1) ):
         screen.update()
     else:
         action = -1
-
 
 del(screen)

@@ -50,9 +50,8 @@ class SnakeScreen(GameScreen):
     def update(self):
         GameScreen.update(self)
 
-
+        pygame.display.set_caption("Snake | score " + str(self.game.score))
         self.surface.fill(self.bottomColor)
-
 
         hx = self.screenHeight/self.game.rows
         hy = self.screenWidth/self.game.columns

@@ -39,8 +39,6 @@ class SnakeGame(gc.Game):
 
 
 
-
-
     def move(self,action):
         gc.Game.move(self,action)
 
@@ -55,17 +53,18 @@ class SnakeGame(gc.Game):
         else:
             mv = (0,0)
 
-
-
         x = (self.body[0][0] + mv[0])%self.columns
         y = (self.body[0][1] + mv[1])%self.rows
 
         self.body.insert(0,[x,y])
 
-        if( [x,y] in self.body[1:-1]):
+        if( len(self.body)>3):
+            if( [x,y] in self.body[1:-1]):
+                self.__init__(self.rows,self.columns)
+                return 0
+        elif( [x,y] in self.body[1:len(self.body)]):
             self.__init__(self.rows,self.columns)
             return 0
-
 
         if( not(self.__verifyApple__()) ) :
             self.body.pop(-1)
