@@ -20,6 +20,10 @@ class SnakeScreen(GameScreen):
             raise Exception('argument errors','the gridThickness' + str(gridThickness) + " is not an number")
 
 
+        self.boxHeight = (self.screenHeight/self.game.rows) * (1-gridThickness)
+        self.boxWidth = (self.screenWidth/self.game.columns) * (1-gridThickness)
+
+
     def __initDisplay__(self):
         GameScreen.__initDisplay__(self)
         self.__drawGrid__()

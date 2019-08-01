@@ -1,1 +1,1 @@
-print(type(0.5))
+print(2/3)

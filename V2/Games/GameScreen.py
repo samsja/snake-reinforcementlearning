@@ -25,6 +25,9 @@ class GameScreen:
 
         self.surface = pygame.display.set_mode((screenWidth, screenHeight))
 
+        self.screenWidth = screenWidth
+        self.screenHeight = screenHeight
+
         self.bottomColor = bottomColor
         self.surface.fill(self.bottomColor)
         self.__initDisplay__()
