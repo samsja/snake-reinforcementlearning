@@ -12,7 +12,7 @@ class Game:
             raise Exception('argument errors','the action ' + str(action) + " is not between 0 and " + str(self.NbInput -1 ))
 
     def getInputs(self):
-        return [i for i in range(self.NbInput)]
+        return (i for i in range(self.NbInput))
 
     def __str__(self):
         return "GameClass " + str(id(self))

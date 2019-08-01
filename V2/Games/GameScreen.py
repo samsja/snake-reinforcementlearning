@@ -29,12 +29,14 @@ class GameScreen:
         self.screenHeight = screenHeight
 
         self.bottomColor = bottomColor
-        self.surface.fill(self.bottomColor)
         self.__initDisplay__()
         pygame.display.update()
 
 
     def __initDisplay__(self):
+        return None
+
+    def update(self):
         return None
 
     def __del__(self):
