@@ -8,7 +8,7 @@ class Game:
         if( not(isinstance(action,int))):
             raise Exception('argument errors','the action ' + str(action) + " is not an integer")
 
-        elif( action <0 or action >= self.NbInput):
+        if( action <0 or action >= self.NbInput):
             raise Exception('argument errors','the action ' + str(action) + " is not between 0 and " + str(self.NbInput -1 ))
 
     def getInputs(self):

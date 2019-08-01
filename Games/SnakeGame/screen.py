@@ -1,4 +1,3 @@
-
 from Games.SnakeGame.game import SnakeGame
 
 from Games.GameScreen import GameScreen
@@ -39,7 +38,7 @@ class SnakeScreen(GameScreen):
 
 
     def __drawGrid__(self):
-        color =  (0,100,0)
+        color =  (0,150,0)
         x,y = -self.screenHeight/self.game.rows,-self.screenWidth/self.game.columns
         for _ in range(0,self.game.rows +1):
             x += self.screenWidth/self.game.rows
@@ -54,7 +53,6 @@ class SnakeScreen(GameScreen):
 
         self.surface.fill(self.bottomColor)
 
-        self.__drawGrid__()
 
         hx = self.screenHeight/self.game.rows
         hy = self.screenWidth/self.game.columns
@@ -62,6 +60,11 @@ class SnakeScreen(GameScreen):
 
         for [x,y] in self.game.body:
             pygame.draw.rect(self.surface,color, ( x*hx + self.rowsHeight/2 , y*hy + self.columnsWidth/2, self.boxWidth,self.boxHeight ))
+
+        [x,y] = self.game.applePos
+        redColor = (190,0,0)
+        pygame.draw.rect(self.surface,redColor, ( x*hx + self.rowsHeight/2 , y*hy + self.columnsWidth/2, self.boxWidth,self.boxHeight ))
+        self.__drawGrid__()
 
         pygame.display.update()
 

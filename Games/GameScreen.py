@@ -11,14 +11,18 @@ class GameScreen:
         if( not(isinstance(screenWidth,int))):
             raise Exception('argument errors','the screenWidth ' + str(screenWidth) + " is not an integer")
 
-        elif( not(isinstance(screenWidth,int))):
+        if( not(isinstance(screenWidth,int))):
             raise Exception('argument errors','the screenHeight ' + str(screenHeight) + " is not an integer")
 
-        elif( not(isinstance(name,str) )):
+        if( not(isinstance(name,str) )):
             raise Exception('argument errors','the name ' + str(name) + " is not a string")
 
-        elif(not(isinstance(game,Game))):
+        if(not(isinstance(game,Game))):
             raise Exception('argument errors','the arguments' + str(game) + " is not a game")
+
+        if(not(isinstance(game,Game))):
+            raise Exception('argument errors','the arguments' + str(game) + " is not a game")
+
 
         self.game = game
         pygame.init()
