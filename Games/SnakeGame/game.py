@@ -1,5 +1,6 @@
 import Games.GameClass as gc
 import random
+import math
 
 
 class SnakeGame(gc.Game):
@@ -21,6 +22,8 @@ class SnakeGame(gc.Game):
         self.score = 0
 
         self.__addNewApple__()
+
+
 
 
     def __addNewApple__(self):
@@ -58,18 +61,25 @@ class SnakeGame(gc.Game):
 
         self.body.insert(0,[x,y])
 
+        rewardDeath = -500*self.rows*self.columns
+        rewardNone = -50
+        rewardEat = 100
+
+
         if( len(self.body)>3):
             if( [x,y] in self.body[1:-1]):
                 self.__init__(self.rows,self.columns)
-                return 0
+                return rewardDeath
         elif( [x,y] in self.body[1:len(self.body)]):
             self.__init__(self.rows,self.columns)
-            return 0
+            return rewardDeath
 
         if( not(self.__verifyApple__()) ) :
             self.body.pop(-1)
+            return rewardNone
         else:
             self.__addNewApple__()
             self.score = self.score +1
+            return max(rewardEat * (1 + math.pow((self.score)/2,1.25)),rewardDeath/10)
 
         return 0
